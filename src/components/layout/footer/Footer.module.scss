@@ -1,0 +1,12 @@
+.footer {
+    font-family: var(--font-family-secondary);
+    background: var(--dark);
+    color: white;
+
+    padding: 3rem 0;
+
+    .logo {
+        width: 100%;
+        max-width: 84px;
+    }
+}
