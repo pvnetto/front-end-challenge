@@ -58,8 +58,9 @@
 
 .dropdown {
     &-toggler {
-        width: 200px;
-        max-width: 140px;
+        text-transform: uppercase;
+        width: 100%;
+        max-width: 160px;
     }
 
     .dropdown-toggler::after {
@@ -70,10 +71,4 @@
 .dropdown .dropdown-menu {
     margin: 0.8rem 0 0 0;
     min-width: 300px;
-}
-
-@media (min-width: 768px) {
-    .dropdown-toggler {
-        max-width: 160px;
-    }
 }

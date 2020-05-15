@@ -8,36 +8,36 @@ import PhoneDropdown from '../../misc/dropdown/phone/PhoneDropdown';
 
 const NavigationBar = ({ onExpand, expanded }) => {
 
-    // const data = useStaticQuery(graphql`
-    //     query {
-    //         autoforceLogo: file(
-    //             relativePath: { eq: "logos/logo_autoforce.png" }
-    //         ) {
-    //             childImageSharp {
-    //                 fluid(maxWidth: 260) {
-    //                     ...GatsbyImageSharpFluid
-    //                 }
-    //             }
-    //         }
+    const data = useStaticQuery(graphql`
+        query {
+            groupLogo: file(
+                relativePath: { eq: "logos/logo_group.png" }
+            ) {
+                childImageSharp {
+                    fluid(maxWidth: 260) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
 
-    //         autoforceLogoWhite: file(
-    //             relativePath: { eq: "logos/logo_autoforce_white.png" }
-    //         ) {
-    //             childImageSharp {
-    //                 fluid(maxWidth: 260) {
-    //                     ...GatsbyImageSharpFluid
-    //                 }
-    //             }
-    //         }
-    //     }
-    // `);
+            brandLogo: file(
+                relativePath: { eq: "logos/logo_brand_toyota.png" }
+            ) {
+                childImageSharp {
+                    fluid(maxWidth: 260) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+        }
+    `);
 
     return (
         <Navbar id="navbar" className={`${style.navbar} d-md-flex d-none flex-column p-0`} variant="light">
             <Container className={`d-flex align-items-center justify-content-between py-4 px-0 h-100`}>
 
-                <Navbar.Brand style={{ width: 150, height: 30, background: 'red' }} href="/">
-                    {/* <Img className={style.navbarLogo} fluid={data.autoforceLogo.childImageSharp.fluid} /> */}
+                <Navbar.Brand style={{ width: 150, height: 30 }} href="/">
+                    <Img className={style.navbarLogo} fluid={data.groupLogo.childImageSharp.fluid} />
                 </Navbar.Brand>
 
 
@@ -62,8 +62,8 @@ const NavigationBar = ({ onExpand, expanded }) => {
 
                 <PhoneDropdown variant="outline-dark">Telefones</PhoneDropdown>
 
-                <Navbar.Brand style={{ width: 150, height: 30, background: 'red' }} href="/">
-                    {/* <Img className={style.navbarLogo} fluid={data.autoforceLogo.childImageSharp.fluid} /> */}
+                <Navbar.Brand style={{ width: 150, height: 30, }} href="/">
+                    <Img className={style.navbarLogo} fluid={data.brandLogo.childImageSharp.fluid} />
                 </Navbar.Brand>
             </Container>
         </Navbar>
