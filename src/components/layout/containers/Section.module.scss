@@ -1,0 +1,9 @@
+.section {
+    padding: 4rem 0;
+    overflow: hidden;
+
+    .sub {
+        font-family: var(--font-family-secondary);
+        font-weight: normal;
+    }
+}

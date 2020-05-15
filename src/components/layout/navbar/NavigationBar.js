@@ -1,7 +1,10 @@
 import React from 'react';
-import { Navbar, Nav, Container, Row, Col, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container, Row, Col, Button, NavDropdown } from 'react-bootstrap';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from "gatsby-image";
+
+import style from './NavigationBar.module.scss';
+import PhoneDropdown from '../../misc/dropdown/phone/PhoneDropdown';
 
 const NavigationBar = ({ onExpand, expanded }) => {
 
@@ -30,21 +33,38 @@ const NavigationBar = ({ onExpand, expanded }) => {
     // `);
 
     return (
-        <Navbar id="navbar" className={`d-md-flex d-none flex-column p-0`} variant="light">
-            <Container className={`d-flex align-items-center justify-content-center px-4 h-100`}>
+        <Navbar id="navbar" className={`${style.navbar} d-md-flex d-none flex-column p-0`} variant="light">
+            <Container className={`d-flex align-items-center justify-content-between py-4 px-0 h-100`}>
 
-                <Navbar.Brand href="/">
+                <Navbar.Brand style={{ width: 150, height: 30, background: 'red' }} href="/">
                     {/* <Img className={style.navbarLogo} fluid={data.autoforceLogo.childImageSharp.fluid} /> */}
                 </Navbar.Brand>
 
 
-                <Nav className="mx-auto d-flex align-items-center">
-                    <Nav.Link href="/">Nossos Veículos</Nav.Link>
+                <Nav className="d-flex align-items-center">
+                    <NavDropdown title="Nossos Veículos" id="services-dropdown">
+                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                    </NavDropdown>
+
                     <Nav.Link href="/">Serviços</Nav.Link>
-                    <Nav.Link href="/">Vendas Diretas </Nav.Link>
+                    <NavDropdown title="Vendas Diretas" id="direct-sales-dropdown">
+                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                    </NavDropdown>
                 </Nav>
 
-                <Button variant="outline-light">Telefones</Button>
+                <PhoneDropdown variant="outline-dark">Telefones</PhoneDropdown>
+
+                <Navbar.Brand style={{ width: 150, height: 30, background: 'red' }} href="/">
+                    {/* <Img className={style.navbarLogo} fluid={data.autoforceLogo.childImageSharp.fluid} /> */}
+                </Navbar.Brand>
             </Container>
         </Navbar>
     );

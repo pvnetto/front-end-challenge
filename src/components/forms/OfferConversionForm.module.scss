@@ -1,0 +1,111 @@
+.form-container {
+    color: white;
+}
+
+.form-header {
+    padding: 1.5rem 1rem;
+
+    h4, small {
+        color: white;;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.form {
+    select {
+        font-weight: bold;
+    }
+
+    :global(.form-group) {
+        margin-bottom: 0.8rem;
+    }
+
+    :global(.form-control) {
+        height: 50px;
+        font-weight: bold;
+
+        &::placeholder {
+            font-weight: normal;
+        }
+    }
+
+    :global(.form-label) {
+        font-weight: bold;
+    }
+
+    :global(.form-check) {
+        margin-right: 1rem;
+        $radio-size: 20px;
+
+        @mixin customCheck {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+    
+            margin: auto 0;
+    
+            width: $radio-size;
+            height: $radio-size;
+            opacity: 0;
+
+            ~ label {
+                cursor: pointer;
+                user-select: none;
+                padding-left: 0.5rem;
+            }
+
+            ~ label::before {
+                content: "";
+                cursor: pointer;
+                width: $radio-size;
+                height: $radio-size;
+        
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+        
+                margin: auto 0;
+        
+                border: 1px solid white;
+                background: transparent;
+            }
+        }
+
+        input[type*=radio] {
+            @include customCheck;
+
+            ~ label::before {
+                border-radius: 100%;
+            }
+
+            &:checked ~ label::before {
+                background-image: radial-gradient(#fff 50%, transparent, transparent);  
+                background-size: 10px 10px;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+
+        input[type*=checkbox] {
+            @include customCheck;
+
+            ~ label::before {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &:checked ~ label::before {
+                content: "✓";
+            }
+
+        }
+
+    }
+}
