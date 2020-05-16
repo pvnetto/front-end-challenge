@@ -1,0 +1,38 @@
+@import "../../../styles/variables";
+
+
+.social-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: $margin-tiny;
+
+    width: 35px;
+    height: 35px;
+
+    color: var(--dark);
+
+    transition: all 0.3s ease;
+
+    svg {
+        pointer-events: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    /* Uses not hovered to animate icons, instead of hovered. This allows us to specify bg color via props. */
+    &:not(:hover) {
+        background-color: rgba($color-gray-light, 0.25) !important;
+    }
+
+    &:hover {
+        color: white;
+        text-decoration: none;
+    }
+}

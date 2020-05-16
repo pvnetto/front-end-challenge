@@ -1,12 +1,23 @@
+@import "../../../styles/variables";
+
 .footer {
     font-family: var(--font-family-secondary);
     background: var(--dark);
-    color: white;
 
-    padding: 3rem 0;
+    padding-top: 3rem;
+}
 
-    .logo {
-        width: 100%;
-        max-width: 84px;
+.copyright-section {
+
+    a {
+        transition: color 0.3s ease;
+        padding: 0 $padding-tiny;
+        &:hover {
+            color: white;
+        }
+    }
+
+    p, a {
+        color: $color-gray-dark;
     }
 }
