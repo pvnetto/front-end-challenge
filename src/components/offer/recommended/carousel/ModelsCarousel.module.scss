@@ -1,0 +1,46 @@
+@import '../../../../styles/variables';
+
+.carousel {
+    padding: 0 4rem;
+
+    &-wrapper {
+    }
+
+    &-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 0 $padding-small;
+        
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    :global(.carousel-control-next),
+    :global(.carousel-control-prev) {
+        width: 30px;
+        height: 30px;
+        background: rgba(#000, 0.35);
+        margin: auto 0;
+    }
+
+    :global(.carousel-indicators) {
+        margin: 0;
+        bottom: -10px;
+
+        li {
+            width: 10px;
+            height: 10px;
+            border: none;
+
+            background: var(--gray);
+            border-radius: 100%;
+
+            &:global(.active) {
+                background: var(--secondary);
+            }
+        }
+    }
+}

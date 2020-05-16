@@ -6,11 +6,12 @@ import SEO from "../components/misc/seo";
 import OfferHeader from "../components/offer/OfferHeader";
 import OfferConditionsSection from "../components/offer/OfferConditionsSection";
 import OfferVersionsSection from "../components/offer/versions";
-import OfferVersionsCarousel from "../components/offer/OfferVersionsCarousel";
+import OfferRecommendedSection from "../components/offer/recommended";
 
 const OfferPage = ({ data }) => {
 
   const { model } = data;
+  const models = data.allModel.edges.map(model => model.node);
 
   return (
     <Layout>
@@ -18,7 +19,7 @@ const OfferPage = ({ data }) => {
       <OfferHeader {...model} />
       <OfferConditionsSection />
       <OfferVersionsSection {...model} />
-      <OfferVersionsCarousel />
+      <OfferRecommendedSection models={models} />
     </Layout>
   );
 };
@@ -28,6 +29,22 @@ export const query = graphql`
     query OfferModel($id: String!) {
         model(id: {eq: $id}) {
             ...FullModel
+        }
+
+        allModel {
+          edges {
+            node {
+              name
+              slug
+              profileImg {
+                childImageSharp {
+                  fluid(maxWidth: 260) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
         }
     }
 `;

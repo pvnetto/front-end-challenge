@@ -20,6 +20,16 @@ const OfferHeader = ({ name, versions, description, bannerImg }) => {
                     }
                 }
             }
+
+            colorBg: file(
+                relativePath: { eq: "color_bg.png" }
+            ) {
+                childImageSharp {
+                    fluid(maxWidth: 1920) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
         }
     `);
 
@@ -27,6 +37,7 @@ const OfferHeader = ({ name, versions, description, bannerImg }) => {
         <Section className="position-relative">
             <header className={style.header} >
                 <BackgroundImage fluid={data.headerBg.childImageSharp.fluid} />
+                <BackgroundImage fluid={data.colorBg.childImageSharp.fluid} style={{ opacity: 0.35 }} />
                 <Container className="my-auto">
                     <Row>
                         <Col md={4} xs={12}>

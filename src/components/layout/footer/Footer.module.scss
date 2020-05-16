@@ -10,8 +10,10 @@
 .copyright-section {
 
     a {
+        text-decoration: underline;
         transition: color 0.3s ease;
         padding: 0 $padding-tiny;
+        
         &:hover {
             color: white;
         }

@@ -1,11 +1,11 @@
 import React from 'react';
 import Img from 'gatsby-image';
 
-import style from './BackgroundImage.module.scss';
+import cssStyle from './BackgroundImage.module.scss';
 
-const BackgroundImage = ({ fluid, className = '' }) => {
+const BackgroundImage = ({ fluid, className = '', style = {} }) => {
     return (
-        <Img className={`${style.bg} position-absolute`} fluid={fluid} />
+        <Img className={`${cssStyle.bg} position-absolute`} style={style} fluid={fluid} />
     );
 };
 
