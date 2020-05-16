@@ -8,7 +8,7 @@ import style from './ModelsCarousel.module.scss';
 const ModelItem = ({ name, slug, profileImg, maxItems }) => (
     <Link to={slug} className={style.carouselItem} style={{ width: `${Math.round((1.0 / maxItems) * 100)}%` }}>
         <Img className="w-100" fluid={profileImg.childImageSharp.fluid} />
-        <p>{name}</p>
+        <h5>{name}</h5>
     </Link>
 );
 

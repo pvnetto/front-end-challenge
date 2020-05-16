@@ -47,8 +47,8 @@ const Footer = () => {
                             <Link><small>Política de Privacidade</small></Link>
                         </div>
                     </Col>
-                    <Col xs={3}>
-                        <SocialIcons />
+                    <Col xs={3} className="d-flex">
+                        <SocialIcons className="ml-auto" />
                     </Col>
                 </Row>
 

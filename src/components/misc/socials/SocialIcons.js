@@ -28,7 +28,7 @@ const iconDict = {
     },
 }
 
-const SocialIcons = () => {
+const SocialIcons = ({ className = '' }) => {
     const data = useStaticQuery(graphql`
         query {
             site {
@@ -45,7 +45,7 @@ const SocialIcons = () => {
     const socials = data.site.siteMetadata.social;
 
     return (
-        <div className={style.socialContainer}>
+        <div className={`${className} ${style.socialContainer}`}>
             {socials.map((socialItem, idx) => {
                 const socialIcon = iconDict[socialItem.name];
                 if (socialIcon) return (

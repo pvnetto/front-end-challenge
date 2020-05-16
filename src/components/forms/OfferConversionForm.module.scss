@@ -144,6 +144,15 @@
         }
 
     }
+
+    button[type=submit] {
+        box-shadow: 0px 4px 6px #AB2E43;
+        transition: box-shadow 0.3s ease;
+
+        &:hover {
+            box-shadow: 0px 0px 0px #AB2E43;
+        }
+    }
 }
 
 .privacy-link {
