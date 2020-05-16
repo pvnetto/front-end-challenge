@@ -31,7 +31,6 @@ const ModelsCarousel = ({ models, modelsPerItem = 5 }) => {
                     {models.map((model, idx) => isInPage(idx, pageCount) ? <ModelItem key={idx} {...model} maxItems={modelsPerItem} /> : null)}
                 </Carousel.Item>
             ))}
-
         </Carousel>
     );
 };

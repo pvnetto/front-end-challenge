@@ -5,6 +5,8 @@ import Img from "gatsby-image";
 
 import style from './NavigationBar.module.scss';
 import PhoneDropdown from '../../misc/dropdown/phone/PhoneDropdown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const NavigationBar = ({ onExpand, expanded }) => {
 
@@ -32,17 +34,24 @@ const NavigationBar = ({ onExpand, expanded }) => {
         }
     `);
 
+    const NavTitle = (title) => (
+        <div className={style.dropdownTitle}>
+            <p className="m-0">{title}</p>
+            <FontAwesomeIcon className="ml-2" icon={faChevronDown} />
+        </div>
+    );
+
     return (
         <Navbar id="navbar" className={`${style.navbar} position-absolute d-md-flex d-none flex-column p-0`}>
             <Container className={`${style.navbarContainer} d-flex align-items-center justify-content-between py-4 px-0 h-100`}>
 
                 <Navbar.Brand href="/">
-                    <Img fixed={data.groupLogo.childImageSharp.fixed} />
+                    <Img className="d-flex" fixed={data.groupLogo.childImageSharp.fixed} />
                 </Navbar.Brand>
 
 
                 <Nav className="d-flex align-items-center">
-                    <NavDropdown title="Nossos Veículos" id="services-dropdown">
+                    <NavDropdown title={NavTitle(" Nossos Veículos ")} id="services-dropdown">
                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
@@ -51,7 +60,8 @@ const NavigationBar = ({ onExpand, expanded }) => {
                     </NavDropdown>
 
                     <Nav.Link href="/">Serviços</Nav.Link>
-                    <NavDropdown title="Vendas Diretas" id="direct-sales-dropdown">
+                    <NavDropdown title={NavTitle(" Vendas Diretas ")} id="direct-sales-dropdown">
+
                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
@@ -63,7 +73,7 @@ const NavigationBar = ({ onExpand, expanded }) => {
                 <PhoneDropdown variant="outline-light">Telefones</PhoneDropdown>
 
                 <Navbar.Brand href="/">
-                    <Img fixed={data.brandLogo.childImageSharp.fixed} />
+                    <Img className="d-flex" fixed={data.brandLogo.childImageSharp.fixed} />
                 </Navbar.Brand>
             </Container>
         </Navbar>

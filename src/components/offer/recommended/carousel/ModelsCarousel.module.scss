@@ -3,8 +3,7 @@
 .carousel {
     padding: 0 4rem;
 
-    &-wrapper {
-    }
+    &-wrapper {}
 
     &-item {
         display: flex;
@@ -20,15 +19,17 @@
 
     :global(.carousel-control-next),
     :global(.carousel-control-prev) {
-        width: 30px;
-        height: 30px;
+        $arrow-size: 30px;
+        width: $arrow-size;
+        height: $arrow-size;
+        top: $arrow-size;
+        
         background: rgba(#000, 0.35);
-        margin: auto 0;
     }
 
     :global(.carousel-indicators) {
         margin: 0;
-        bottom: -10px;
+        bottom: -$margin-small;
 
         li {
             width: 10px;

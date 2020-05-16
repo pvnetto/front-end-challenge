@@ -1,3 +1,5 @@
+@import '../../../styles/variables';
+
 .navbar {
     background: transparent;
     top: 0;
@@ -10,12 +12,29 @@
         :global(.navbar-nav) {
             :global(.nav-link) {
                 color: #FEFEFE;
+                margin: 0 $margin-wee;
                 font-weight: 600;
                 
                 &:hover, &:focus {
                     color: #FEFEFE;
                 }
             }
+        }
+    }
+
+    .dropdown-title {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            max-width: 7px;
+        }
+    }
+
+    :global(.dropdown-toggle) {
+        &::after {
+            display: none;
         }
     }
 

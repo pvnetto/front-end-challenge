@@ -64,7 +64,11 @@ const PhoneDropdown = ({ alignRight, variant }) => {
     return (
         <Dropdown onToggle={setExpanded} className={`${style.dropdown}`}>
             <Dropdown.Toggle className={`${style.dropdownToggler} mr-3`} variant={variant} id="phone-dropdown">
-                <strong><FontAwesomeIcon style={{ maxWidth: '30px' }} icon={faPhoneAlt} /> Telefones</strong>
+                <strong>
+                    <FontAwesomeIcon style={{ maxWidth: '30px' }} icon={faPhoneAlt} />
+                    <span className="mx-2">Telefones</span>
+                    <FontAwesomeIcon style={{ maxWidth: '7px' }} icon={faChevronDown} />
+                </strong>
             </Dropdown.Toggle>
 
             <Dropdown.Menu alignRight={alignRight} className={`${style.dropdownMenu} position-absolute p-0`}>
