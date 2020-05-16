@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import SEO from "../components/misc/seo";
 import OfferHeader from "../components/offer/OfferHeader";
 import OfferConditionsSection from "../components/offer/OfferConditionsSection";
-import OfferVersionsSection from "../components/offer/OfferVersionsSection";
+import OfferVersionsSection from "../components/offer/versions";
 import OfferVersionsCarousel from "../components/offer/OfferVersionsCarousel";
 
 const OfferPage = ({ data }) => {
@@ -17,7 +17,7 @@ const OfferPage = ({ data }) => {
       <SEO title={`${model.brand} ${model.name}`} />
       <OfferHeader {...model} />
       <OfferConditionsSection />
-      <OfferVersionsSection />
+      <OfferVersionsSection {...model} />
       <OfferVersionsCarousel />
     </Layout>
   );

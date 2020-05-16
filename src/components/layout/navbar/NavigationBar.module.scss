@@ -5,12 +5,13 @@
     width: 100%;
     z-index: 1;
     text-transform: uppercase;
-    font-weight: 600;
     
     .navbar-container {
         :global(.navbar-nav) {
             :global(.nav-link) {
                 color: #FEFEFE;
+                font-weight: 600;
+                
                 &:hover, &:focus {
                     color: #FEFEFE;
                 }

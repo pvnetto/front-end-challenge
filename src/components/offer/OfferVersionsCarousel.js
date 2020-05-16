@@ -63,7 +63,7 @@ const VersionsCarousel = ({ versions }) => {
 const OfferVersionsCarousel = () => {
 
     return (
-        <Section className="bg-primary">
+        <Section className="bg-light text-dark">
             <Container>
                 <Row>
                     <Col xs={12}>

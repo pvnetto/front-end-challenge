@@ -12,7 +12,7 @@ export const fullModelFragment = graphql`
             price
             profileImg {
                 childImageSharp {
-                    fluid(maxWidth: 260) {
+                    fluid(maxWidth: 360) {
                         ...GatsbyImageSharpFluid
                     }
                 }
