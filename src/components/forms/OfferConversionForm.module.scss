@@ -1,17 +1,22 @@
+@import '../../styles/variables';
+
 .form-container {
     color: white;
     background: rgba(#181717, 0.6);
+    padding: $padding-middle $padding-small;
+
+    hr {
+        background: rgba($color-gray-dark, 0.5);
+        margin: 0;
+    }
 }
 
 .form-header {
-    padding: 1.5rem 1rem;
+    padding: 0;
+    margin-bottom: $margin-small;
 
-    h4, small {
-        color: white;;
-    }
-
-    p {
-        margin: 0;
+    h4 {
+        text-transform: uppercase;
     }
 }
 
@@ -24,8 +29,13 @@
         text-transform: uppercase;
     }
 
+    label {
+        font-size: $font-size-small;
+        font-weight: 600;
+    }
+
     :global(.form-group) {
-        margin-bottom: 0.8rem;
+        margin: $margin-small 0;
     }
 
     :global(.form-row) {
@@ -39,13 +49,12 @@
         border: 1px solid var(--gray);
         border-radius: 3px;
 
+        color: $color-gray-light;
+
         &:focus {
             outline: none;
             box-shadow: none;
-            border-color: var(--gray);
-            ~ label {
-                opacity: 1;
-            }
+            border-color: #9F9F9F;
         }
     }
 
@@ -54,8 +63,9 @@
     }
 
     :global(.form-check) {
-        margin-right: 1rem;
-        $radio-size: 20px;
+        $radio-size: 14px;
+        display: flex;
+        align-items: center;
 
         @mixin customCheck {
             position: absolute;
@@ -64,7 +74,7 @@
             left: 0;
     
             margin: auto 0;
-    
+
             width: $radio-size;
             height: $radio-size;
             opacity: 0;
@@ -72,8 +82,12 @@
             ~ label {
                 cursor: pointer;
                 user-select: none;
-                padding-left: 0.5rem;
-                margin-right: 1.2rem;
+
+                margin-right: $margin-large;
+                
+                /* Makes the space between label and input clickable */
+                padding-left: 1rem;
+                margin-left: -0.5rem;
             }
 
             ~ label::before {
@@ -90,7 +104,7 @@
         
                 margin: auto 0;
         
-                border: 1px solid white;
+                border: 2px solid white;
                 background: transparent;
             }
         }
@@ -102,9 +116,10 @@
                 border-radius: 100%;
             }
 
+            
             &:checked ~ label::before {
                 background-image: radial-gradient(#fff 50%, transparent, transparent);  
-                background-size: 10px 10px;
+                background-size: 8px 8px;
                 background-position: center;
                 background-repeat: no-repeat;
             }
@@ -120,10 +135,22 @@
             }
 
             &:checked ~ label::before {
-                content: "✓";
+                background-image: linear-gradient(to top, #fff, #fff);
+                background-size: 6px 6px;
+                background-position: center;
+                background-repeat: no-repeat;
             }
 
         }
 
+    }
+}
+
+.privacy-link {
+    color: white;
+    text-decoration: underline;
+    
+    &:hover {
+        color: white;
     }
 }

@@ -5,23 +5,19 @@ import style from './OfferConversionForm.module.scss';
 
 
 const OfferConversionForm = ({ versions, className = '', children }) => (
-    <div id="offer-conversion-form" className={`${className} ${style.formContainer}`}>
+    <div id="offer-conversion-form" className={style.formContainer}>
         <div className={`${style.formHeader} text-center`}>
             <h4 className="mb-1">Simular Financiamento</h4>
-            <p className="m-0">Escolha a parcela que cabe no seu bolso.</p>
+            <p className="m-0"><small>Escolha a parcela que cabe no seu bolso.</small></p>
         </div>
-        <Form className={`${style.form} p-3`}>
+        <Form className={`${style.form}`}>
 
             <hr />
 
             <Form.Group>
                 <Form.Label>Escolha uma versão</Form.Label>
                 <Form.Control as="select" >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    {versions.map((version, idx) => <option key={idx} value={version.name}>{version.name}</option>)}
                 </Form.Control>
             </Form.Group>
 
@@ -63,17 +59,17 @@ const OfferConversionForm = ({ versions, className = '', children }) => (
             </Form.Group>
 
 
-            <Form.Group className="mt-4">
+            <Form.Group>
                 <Button className="w-100 py-3" variant="secondary" type="submit">
                     <strong>Simular Financiamento</strong>
                 </Button>
             </Form.Group>
 
-            <p className="mt-3"><small><a href="/">Política de privacidade</a></small></p>
+            <a className={style.privacyLink} href="/"><small>Política de privacidade</small></a>
         </Form>
 
         {children}
-    </div>
+    </div >
 );
 
 export default OfferConversionForm;

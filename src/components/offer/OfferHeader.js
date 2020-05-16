@@ -41,7 +41,7 @@ const OfferHeader = ({ name, versions, description, bannerImg }) => {
                 <Container className="my-auto">
                     <Row>
                         <Col md={4} xs={12}>
-                            <OfferConversionForm />
+                            <OfferConversionForm versions={versions} />
                         </Col>
                         <Col className="d-flex flex-column" md={8} xs={12}>
                             <div className="d-flex flex-column">
