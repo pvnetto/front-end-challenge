@@ -6,7 +6,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import { phoneFormatter } from '../../../helpers/formatters';
 
-import units from '../../../../../config/units';
 import style from './PhoneDropdown.module.scss';
 
 
@@ -43,23 +42,23 @@ const UnitPhone = ({ name, phones, divider }) => {
 }
 
 const PhoneDropdown = ({ alignRight, variant }) => {
-    // const data = useStaticQuery(graphql`
-    //     query UnitsData {
-    //         allUnit {
-    //             edges {
-    //                 node {
-    //                     name
-    //                     phones {
-    //                         number
-    //                         title
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // `);
+    const data = useStaticQuery(graphql`
+        query UnitsData {
+            allUnit {
+                edges {
+                    node {
+                        name
+                        phones {
+                            number
+                            title
+                        }
+                    }
+                }
+            }
+        }
+    `);
 
-    // const units = data.allUnit.edges.map(item => item.node);
+    const units = data.allUnit.edges.map(item => item.node);
     const [expanded, setExpanded] = useState(false);
 
     return (

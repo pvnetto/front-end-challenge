@@ -58,12 +58,12 @@ $color-footer-dark: 				darken($color-footer-base, 8%);
 $color-footer-light: 				lighten($color-footer-base, 15%);
 
 /* FONT */
-$font-family-base: 							'Open Sans', sans-serif;
+$font-family-base: 						'Open Sans', sans-serif;
 $font-family-secondary: 				'Open Sans', sans-serif;
 
-$font-size-base:          	14px;
-$font-size-small:         	12px;
-$font-size-wee:         		10px;
+$font-size-base:          	1rem;
+$font-size-small:         	0.85rem;
+$font-size-wee:         		0.8rem;
 $font-size-large:         	ceil($font-size-base * 1.25);		// 18px
 $font-size-h1:            	floor($font-size-base * 2.6);		// 36px
 $font-size-h2:            	floor($font-size-base * 2.15);	// 30px
@@ -73,14 +73,14 @@ $font-size-h5:            	ceil($font-size-base * 1.125);	// 16px
 $font-size-h6:            	ceil($font-size-base * 0.85);		// 12px
 
 $font-weight-thin: 					100;
-$font-weight-extra-light: 	200;
+$font-weight-extra-light: 			200;
 $font-weight-light: 				300;
 $font-weight-normal: 				normal;
 $font-weight-medium: 				500;
-$font-weight-semi-bold: 		600;
+$font-weight-semi-bold: 			600;
 $font-weight-bold: 					700;
-$font-weight-extra-bold: 		800;
-$font-weight-ultra-bold: 		900;
+$font-weight-extra-bold: 			800;
+$font-weight-ultra-bold: 			900;
 
 $text-color:        				$color-gray-darker;
 $link-color:            		$color-primary-base;
@@ -88,7 +88,7 @@ $link-hover-color:      		$color-primary-dark;
 $link-hover-decoration: 		underline;
 
 $padding-tiny:							5px;
-$padding-wee:								10px;
+$padding-wee:							10px;
 $padding-small:							15px;
 $padding-base:							20px;
 $padding-middle: 						25px;
@@ -96,14 +96,14 @@ $padding-extra: 						30px;
 $padding-large: 						35px;
 $padding-big: 							40px;
 
-$margin-tiny:								5px;
-$margin-wee:								10px;
+$margin-tiny:							5px;
+$margin-wee:							10px;
 $margin-small:							15px;
-$margin-base:								20px;
+$margin-base:							20px;
 $margin-middle: 						25px;
 $margin-extra: 							30px;
 $margin-large: 							35px;
-$margin-big: 								40px;
+$margin-big: 							40px;
 
 $z-index-force:							9999;
 $z-index-aheader:						25;

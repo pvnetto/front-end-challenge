@@ -65,8 +65,8 @@ const generateUserModels = async ({ createNode }, getNodes) => {
                 price: modelData.price,
                 slug: modelData.slug,
                 profileImgUrl: modelData.profile_image,
+                bannerUrl: modelData.item_gallery[0].url.replace('http:', 'https:'),// modelData.item_background.replace('http:', 'https:'),
                 versions: getModelVersions(modelData),
-                banner: modelData.item_background.replace('http:', 'https:'),
                 parent: '__SOURCE__',
                 internal: {
                     type: 'Model',
@@ -87,48 +87,41 @@ exports.sourceNodes = async ({ actions, getNodes }) => {
     await generateUserModels(actions, getNodes);
 };
 
-// exports.createPages = async ({ graphql, actions, reporter }) => {
-//     const { createPage } = actions;
+exports.createPages = async ({ graphql, actions, reporter }) => {
+    const { createPage } = actions;
 
-//     await graphql(
-//         `
-//         {
-//             allModel {
-//                 edges {
-//                     node {
-//                         id
-//                         slug
-//                     }
-//                 }
-//             }
-//         }
-//         `
-//     ).then(result => {
-//         if (result.errors) {
-//             reporter.panicOnBuild('Error while fetching Models from GraphQL.');
-//             return;
-//         }
+    await graphql(
+        `
+        {
+            allModel {
+                edges {
+                    node {
+                        id
+                        slug
+                    }
+                }
+            }
+        }
+        `
+    ).then(result => {
+        if (result.errors) {
+            reporter.panicOnBuild('Error while fetching Models from GraphQL.');
+            return;
+        }
 
-//         const modelData = result.data.allModel.edges.map(item => item.node);
+        const modelData = result.data.allModel.edges.map(item => item.node);
 
-//         const getRelatedModels = (idx, numOfModels) => modelData
-//             .filter((other, otherIdx) => otherIdx !== idx)          // Removes current model
-//             .sort(() => 0.5 - Math.random())                        // Shuffles the array
-//             .slice(0, Math.min(numOfModels, modelData.length));     // Samples items from array
-
-//         modelData.forEach((model, idx) => {
-//             const relatedModels = getRelatedModels(idx, 3);
-//             createPage({
-//                 path: `${model.slug}`,
-//                 component: path.resolve('./src/templates/offer.js'),
-//                 context: {
-//                     id: model.id,
-//                     related: relatedModels.map(relatedModel => relatedModel.id),
-//                 }
-//             });
-//         });
-//     });
-// };
+        modelData.forEach((model, idx) => {
+            createPage({
+                path: `${model.slug}`,
+                component: path.resolve('./src/templates/offer.js'),
+                context: {
+                    id: model.id,
+                }
+            });
+        });
+    });
+};
 
 exports.onCreateNode = async ({ node, actions, store, cache, createNodeId }) => {
     const { createNode } = actions;
@@ -148,6 +141,18 @@ exports.onCreateNode = async ({ node, actions, store, cache, createNodeId }) => 
                 if (profileImgNode) node.profileImg___NODE = profileImgNode.id;
             }).catch(err => console.log('Error while fetching profile image :(', err));
         }
+        if (node.bannerUrl) {
+            await createRemoteFileNode({
+                url: node.bannerUrl,
+                parentNodeId: node.id,
+                createNode,
+                createNodeId,
+                cache,
+                store,
+            }).then(bannerImgNode => {
+                if (bannerImgNode) node.bannerImg___NODE = bannerImgNode.id;
+            }).catch(err => console.log('Error :(', err));;
+        }
         if (node.versions) {
             let versionPromises = node.versions.map(async (version, idx) => {
                 await createRemoteFileNode({
@@ -164,6 +169,5 @@ exports.onCreateNode = async ({ node, actions, store, cache, createNodeId }) => 
 
             return await Promise.all(versionPromises);
         }
-
     }
 }

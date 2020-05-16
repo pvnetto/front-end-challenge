@@ -7,26 +7,26 @@ import style from './OfferHeader.module.scss';
 import Section from '../layout/containers/Section';
 import OfferConversionForm from '../forms/OfferConversionForm';
 
-const OfferHeader = () => {
+const OfferHeader = ({ name, versions, description, bannerImg }) => {
 
-    // const data = useStaticQuery(graphql`
-    //     query {
-    //         headerBg: file(
-    //             relativePath: { eq: "header_bg.png" }
-    //         ) {
-    //             childImageSharp {
-    //                 fluid(maxWidth: 1920) {
-    //                     ...GatsbyImageSharpFluid
-    //                 }
-    //             }
-    //         }
-    //     }
-    // `);
+    const data = useStaticQuery(graphql`
+        query {
+            headerBg: file(
+                relativePath: { eq: "header_bg.png" }
+            ) {
+                childImageSharp {
+                    fluid(maxWidth: 1920) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+        }
+    `);
 
     return (
-        <Section>
+        <Section className="position-relative">
             <header className={style.header} >
-                {/* <BackgroundImage fluid={data.headerBg.childImageSharp.fluid} /> */}
+                <BackgroundImage fluid={data.headerBg.childImageSharp.fluid} />
                 <Container className="my-auto">
                     <Row>
                         <Col md={4} xs={12}>
@@ -34,10 +34,10 @@ const OfferHeader = () => {
                         </Col>
                         <Col className="d-flex flex-column" md={8} xs={12}>
                             <div className="d-flex flex-column">
-                                <h1>Nome do Modelo</h1>
-                                <h3>Versão</h3>
+                                <h1>{name}</h1>
+                                <h3>{versions && versions.length > 0 ? versions[0].name : ''}</h3>
 
-                                <p>Descrição</p>
+                                <p>{description}</p>
 
                                 <p>De</p>
                                 <p>Por</p>

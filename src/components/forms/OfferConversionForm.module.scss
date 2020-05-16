@@ -1,5 +1,6 @@
 .form-container {
     color: white;
+    background: rgba(#181717, 0.6);
 }
 
 .form-header {
@@ -19,16 +20,32 @@
         font-weight: bold;
     }
 
+    button {
+        text-transform: uppercase;
+    }
+
     :global(.form-group) {
         margin-bottom: 0.8rem;
     }
 
-    :global(.form-control) {
-        height: 50px;
-        font-weight: bold;
+    :global(.form-row) {
+        margin: 0;
+    }
 
-        &::placeholder {
-            font-weight: normal;
+    :global(.form-control) {
+        height: 30px;
+
+        background: transparent;
+        border: 1px solid var(--gray);
+        border-radius: 3px;
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+            border-color: var(--gray);
+            ~ label {
+                opacity: 1;
+            }
         }
     }
 
@@ -56,6 +73,7 @@
                 cursor: pointer;
                 user-select: none;
                 padding-left: 0.5rem;
+                margin-right: 1.2rem;
             }
 
             ~ label::before {

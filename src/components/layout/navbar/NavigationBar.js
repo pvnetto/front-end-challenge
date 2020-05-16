@@ -14,8 +14,8 @@ const NavigationBar = ({ onExpand, expanded }) => {
                 relativePath: { eq: "logos/logo_group.png" }
             ) {
                 childImageSharp {
-                    fluid(maxWidth: 260) {
-                        ...GatsbyImageSharpFluid
+                    fixed {
+                        ...GatsbyImageSharpFixed
                     }
                 }
             }
@@ -24,8 +24,8 @@ const NavigationBar = ({ onExpand, expanded }) => {
                 relativePath: { eq: "logos/logo_brand_toyota.png" }
             ) {
                 childImageSharp {
-                    fluid(maxWidth: 260) {
-                        ...GatsbyImageSharpFluid
+                    fixed {
+                        ...GatsbyImageSharpFixed
                     }
                 }
             }
@@ -33,11 +33,11 @@ const NavigationBar = ({ onExpand, expanded }) => {
     `);
 
     return (
-        <Navbar id="navbar" className={`${style.navbar} d-md-flex d-none flex-column p-0`} variant="light">
-            <Container className={`d-flex align-items-center justify-content-between py-4 px-0 h-100`}>
+        <Navbar id="navbar" className={`${style.navbar} position-absolute d-md-flex d-none flex-column p-0`}>
+            <Container className={`${style.navbarContainer} d-flex align-items-center justify-content-between py-4 px-0 h-100`}>
 
-                <Navbar.Brand style={{ width: 150, height: 30 }} href="/">
-                    <Img className={style.navbarLogo} fluid={data.groupLogo.childImageSharp.fluid} />
+                <Navbar.Brand href="/">
+                    <Img fixed={data.groupLogo.childImageSharp.fixed} />
                 </Navbar.Brand>
 
 
@@ -60,10 +60,10 @@ const NavigationBar = ({ onExpand, expanded }) => {
                     </NavDropdown>
                 </Nav>
 
-                <PhoneDropdown variant="outline-dark">Telefones</PhoneDropdown>
+                <PhoneDropdown variant="outline-light">Telefones</PhoneDropdown>
 
-                <Navbar.Brand style={{ width: 150, height: 30, }} href="/">
-                    <Img className={style.navbarLogo} fluid={data.brandLogo.childImageSharp.fluid} />
+                <Navbar.Brand href="/">
+                    <Img fixed={data.brandLogo.childImageSharp.fixed} />
                 </Navbar.Brand>
             </Container>
         </Navbar>

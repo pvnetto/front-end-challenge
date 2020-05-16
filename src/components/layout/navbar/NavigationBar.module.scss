@@ -1,14 +1,21 @@
 .navbar {
     background: transparent;
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-
-    &-logo {
-        width: 100%;
-        max-width: 100px;
-        height: auto;
-    }
+    z-index: 1;
+    text-transform: uppercase;
+    font-weight: 600;
     
+    .navbar-container {
+        :global(.navbar-nav) {
+            :global(.nav-link) {
+                color: #FEFEFE;
+                &:hover, &:focus {
+                    color: #FEFEFE;
+                }
+            }
+        }
+    }
+
 }
