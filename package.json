@@ -27,7 +27,8 @@
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.12.0",
-    "react-helmet": "^6.0.0"
+    "react-helmet": "^6.0.0",
+    "react-youtube": "^7.11.2"
   },
   "devDependencies": {
     "prettier": "2.0.5"

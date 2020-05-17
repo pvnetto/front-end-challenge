@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Row, Col, Container } from 'react-bootstrap';
 import Img from 'gatsby-image';
@@ -74,12 +74,12 @@ const OfferVersionsSection = ({ versions }) => {
                         <div className={`${style.versions} d-flex flex-column align-items-end`}>
                             <h3 className={style.title}>Versões</h3>
                             <div className={style.versionsList}>
-                                {versions.map(version => (
-                                    <>
+                                {versions.map((version, idx) => (
+                                    <Fragment key={idx}>
                                         <h5 onClick={() => setCurrentVersion(version)}
                                             className={`${style.versionsItem} ${versionActiveClass(version)}`}>{version.name}</h5>
                                         <hr />
-                                    </>
+                                    </ Fragment>
                                 ))}
                             </div>
                         </div>

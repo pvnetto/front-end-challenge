@@ -40,5 +40,6 @@ export const fullModelFragment = graphql`
                 }
             }
         }
+        videoGallery
     }
 `;

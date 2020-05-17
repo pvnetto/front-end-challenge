@@ -8,8 +8,9 @@ import OfferConversionForm from '../../forms/OfferConversionForm';
 
 import style from './OfferHeader.module.scss';
 import FacebookButton from './facebook';
+import BackgroundVideo from '../../misc/BackgroundVideo';
 
-const OfferHeader = ({ name, price, versions, description, bannerImg }) => {
+const OfferHeader = ({ name, price, versions, description, bannerImg, videoGallery }) => {
 
     const data = useStaticQuery(graphql`
         query {
@@ -38,7 +39,11 @@ const OfferHeader = ({ name, price, versions, description, bannerImg }) => {
     return (
         <Section className={`${style.section} position-relative`}>
             <header className={style.header} >
-                <BackgroundImage fluid={data.headerBg.childImageSharp.fluid} />
+
+                {videoGallery && videoGallery.length > 0 ?
+                    <BackgroundVideo videoURL={videoGallery[0]} /> :
+                    <BackgroundImage fluid={data.headerBg.childImageSharp.fluid} />}
+
                 <BackgroundImage fluid={data.colorBg.childImageSharp.fluid} className={style.overlay} />
                 <Container className="my-auto">
                     <Row>

@@ -54,6 +54,11 @@ const generateUserModels = async ({ createNode }, getNodes) => {
             })) : [];
     };
 
+    const getModelVideos = (modelData) => {
+        const { videos_gallery } = modelData;
+        return videos_gallery && videos_gallery.length > 0 ? videos_gallery : [];
+    }
+
     const files = await getNodes().filter(node => node.internal.type === 'File');
 
     await fetchNewModels().then(res => {
@@ -68,6 +73,7 @@ const generateUserModels = async ({ createNode }, getNodes) => {
                 profileImgUrl: modelData.profile_image,
                 bannerUrl: modelData.item_gallery[0].url.replace('http:', 'https:'),// modelData.item_background.replace('http:', 'https:'),
                 versions: getModelVersions(modelData),
+                videoGallery: getModelVideos(modelData),
                 parent: '__SOURCE__',
                 internal: {
                     type: 'Model',
