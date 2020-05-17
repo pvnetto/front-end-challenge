@@ -3,8 +3,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { Row, Col, Container } from 'react-bootstrap';
 import Img from 'gatsby-image';
 
-import Section from '../../layout/containers/Section';
-import BackgroundImage from '../../misc/BackgroundImage';
+import Section from '../../../layout/containers/Section';
+import BackgroundImage from '../../../misc/BackgroundImage';
 import style from './OfferVersionsSection.module.scss';
 import { splitItems } from './splitItems';
 

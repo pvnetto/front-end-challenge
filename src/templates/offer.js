@@ -3,10 +3,10 @@ import { Link, graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/misc/seo";
-import OfferHeader from "../components/offer/header";
-import OfferHighlightsSection from "../components/offer/highlights";
-import OfferVersionsSection from "../components/offer/versions";
-import OfferRecommendedSection from "../components/offer/recommended";
+import OfferHeader from "../components/pages/offer/header";
+import OfferHighlightsSection from "../components/pages/offer/highlights";
+import OfferVersionsSection from "../components/pages/offer/versions";
+import OfferRecommendedSection from "../components/pages/offer/recommended";
 
 const OfferPage = ({ data }) => {
 

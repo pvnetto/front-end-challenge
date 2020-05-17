@@ -3,8 +3,8 @@ import Img from 'gatsby-image';
 import { Link, graphql } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap";
 
-import SEO from "../misc/seo";
-import Section from '../layout/containers/Section';
+import SEO from "../../misc/seo";
+import Section from '../../layout/containers/Section';
 
 import style from './ModelGrid.module.scss';
 

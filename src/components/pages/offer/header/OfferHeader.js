@@ -3,13 +3,13 @@ import Img from 'gatsby-image';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import BackgroundImage from '../../misc/BackgroundImage';
-import Section from '../../layout/containers/Section';
-import OfferConversionForm from '../../forms/OfferConversionForm';
+import BackgroundImage from '../../../misc/BackgroundImage';
+import Section from '../../../layout/containers/Section';
+import OfferConversionForm from '../../../forms/OfferConversionForm';
+import BackgroundVideo from '../../../misc/BackgroundVideo';
 
 import style from './OfferHeader.module.scss';
 import FacebookButton from './facebook';
-import BackgroundVideo from '../../misc/BackgroundVideo';
 
 const OfferHeader = ({ name, price, profileImg, versions, description, bannerImg, videoGallery }) => {
 

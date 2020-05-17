@@ -2,8 +2,8 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Row, Col, Container } from 'react-bootstrap';
 
-import BackgroundImage from '../../misc/BackgroundImage';
-import Section from '../../layout/containers/Section';
+import BackgroundImage from '../../../misc/BackgroundImage';
+import Section from '../../../layout/containers/Section';
 
 import style from './OfferHighlightsSection.module.scss';
 

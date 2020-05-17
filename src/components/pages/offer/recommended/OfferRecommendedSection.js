@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import Section from '../../layout/containers/Section';
+import Section from '../../../layout/containers/Section';
 import ModelsCarousel from './carousel/ModelsCarousel';
 
 import style from './OfferRecommendedSection.module.scss';

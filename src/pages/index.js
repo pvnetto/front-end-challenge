@@ -6,7 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Layout from "../components/layout";
 import SEO from "../components/misc/seo";
 import Section from '../components/layout/containers/Section';
-import ModelGrid from "../components/home/ModelGrid";
+import ModelGrid from "../components/pages/home/ModelGrid";
 
 const IndexPage = ({ data }) => {
     const models = data.allModel.edges.map(model => model.node);
