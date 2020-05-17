@@ -3,6 +3,9 @@ import Img from 'gatsby-image';
 import { Carousel } from 'react-bootstrap';
 import { Link } from 'gatsby';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
 import style from './ModelsCarousel.module.scss';
 
 const ModelItem = ({ name, slug, profileImg, maxItems }) => (
@@ -25,7 +28,13 @@ const ModelsCarousel = ({ models, modelsPerItem = 5 }) => {
     const range = n => [...Array(n).keys()];
 
     return (
-        <Carousel fade className={style.carousel} >
+        <Carousel fade className={style.carousel}
+            nextIcon={
+                <FontAwesomeIcon icon={faChevronRight} />
+            }
+            prevIcon={
+                <FontAwesomeIcon icon={faChevronLeft} />
+            }>
             {range(pages).map((pageCount) => (
                 <Carousel.Item key={pageCount} className={`${style.wrapper} w-100 d-flex flex-row align-items-center justify-content-center bg-light`}>
                     {models.map((model, idx) => isInPage(idx, pageCount) ? <ModelItem key={idx} {...model} maxItems={modelsPerItem} /> : null)}

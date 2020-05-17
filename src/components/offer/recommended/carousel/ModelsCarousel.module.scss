@@ -13,12 +13,16 @@
         
         padding: 0 $padding-small;
 
+        transform: scale(1);
+        transition: transform $time-duration ease;
+
         h5 {
-            height: 2 * $font-size-h5;
+            height: 2.5 * $font-size-h5;
         }
-        
+
         &:hover {
             text-decoration: none;
+            transform: scale(1.15);
         }
     }
 
@@ -30,6 +34,7 @@
         top: $arrow-size;
         
         background: rgba(#000, 0.35);
+        color: white;
     }
 
     :global(.carousel-indicators) {

@@ -136,11 +136,17 @@
         margin-right: $margin-tiny;
 
         padding: 2px $padding-wee;
-        background: $color-primary-base;
+        background-color: $color-primary-base;
         border-radius: 9.5px;
+
+        transition: background-color $time-duration ease;
 
         small {
             font-weight: $font-weight-normal;
+        }
+
+        &:hover {
+            background: $color-primary-dark;
         }
     }
 }

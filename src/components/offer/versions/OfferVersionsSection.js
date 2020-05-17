@@ -6,6 +6,7 @@ import Img from 'gatsby-image';
 import Section from '../../layout/containers/Section';
 import BackgroundImage from '../../misc/BackgroundImage';
 import style from './OfferVersionsSection.module.scss';
+import { splitItems } from './splitItems';
 
 const StatsText = ({ spec }) => {
     const [title, value] = spec.split(':');
@@ -26,26 +27,7 @@ const TagList = ({ items }) => {
         </div>
     );
 
-    const rowA = [];
-    const rowB = [];
-
-    const addToRow = function () {
-        let rowALength = 0;
-        let rowBLength = 0;
-
-        return (item) => {
-            if (rowALength < rowBLength) {
-                rowA.push(item);
-                rowALength += item.length;
-            }
-            else {
-                rowB.push(item);
-                rowBLength += item.length;
-            }
-        }
-    }();
-
-    items.forEach(item => addToRow(item));
+    const [rowA, rowB] = splitItems(items);
 
     return (
         <div className={style.tagContainer}>
