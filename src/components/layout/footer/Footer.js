@@ -40,7 +40,7 @@ const Footer = () => {
                         <Link to="/"><Img fixed={data.groupLogo.childImageSharp.fixed} /></Link>
                     </Col>
                     <Col xs={6} className={`${style.copyrightSection} d-flex flex-column align-items-center justify-content-center text-center`}>
-                        <p className="m-0"><small>Copyright © 2019 AutoForce - Todos os direitos reservados. </small></p>
+                        <p className="m-0"><small>Copyright © 2020 AutoForce - Todos os direitos reservados. </small></p>
                         <div className="d-flex">
                             <Link><small>Visitar Site</small></Link>
                             <Link><small>Contato</small></Link>
