@@ -33,13 +33,6 @@ export const fullModelFragment = graphql`
                 }
             }
         }
-        bannerImg {
-            childImageSharp {
-                fluid(maxWidth: 1920) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
         videoGallery
     }
 `;
