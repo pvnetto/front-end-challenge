@@ -43,3 +43,9 @@
 .overlay {
     opacity: 0.6;
 }
+
+.disclaimer {
+    small {
+        font-size: $font-size-wee;
+    }
+}
