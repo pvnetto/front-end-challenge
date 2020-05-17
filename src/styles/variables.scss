@@ -131,6 +131,10 @@ $time-duration: 						0.25s;
 	@return $value / 2
 };
 
+@mixin transition-simple {
+	transition: background-color $time-duration ease;
+}
+
 .scrolloff {pointer-events: none;}
 
 .fa-github-alt,
@@ -153,7 +157,7 @@ $time-duration: 						0.25s;
 .fa-twitter,
 .fa-whatsapp,
 .fa-youtube-play {
-	// @include transition-simple;
+	@include transition-simple;
 	&:hover {color: $color-white;}
 }
 

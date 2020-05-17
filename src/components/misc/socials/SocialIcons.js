@@ -8,23 +8,23 @@ import { useStaticQuery, graphql } from 'gatsby';
 const iconDict = {
     instagram: {
         icon: faInstagram,
-        hoverColor: '#DD336F'
+        iconClass: 'fa-instagram'
     },
     twitter: {
         icon: faTwitter,
-        hoverColor: '#1DA1F2'
+        iconClass: 'fa-twitter'
     },
     facebook: {
         icon: faFacebookF,
-        hoverColor: '#4367B2'
+        iconClass: 'fa-facebook'
     },
     linkedin: {
         icon: faLinkedin,
-        hoverColor: '#0277B5'
+        iconClass: 'fa-linkedin'
     },
     youtube: {
         icon: faYoutube,
-        hoverColor: '#FF0402'
+        iconClass: 'fa-youtube-play'
     },
 }
 
@@ -49,7 +49,7 @@ const SocialIcons = ({ className = '' }) => {
             {socials.map((socialItem, idx) => {
                 const socialIcon = iconDict[socialItem.name];
                 if (socialIcon) return (
-                    <a key={idx} style={{ backgroundColor: socialIcon.hoverColor }} className={style.socialIcon} href={socialItem.url}>
+                    <a key={idx} className={`${style.socialIcon} ${socialIcon.iconClass}`} href={socialItem.url}>
                         <FontAwesomeIcon className="my-auto" icon={socialIcon.icon} />
                     </a>
                 );
