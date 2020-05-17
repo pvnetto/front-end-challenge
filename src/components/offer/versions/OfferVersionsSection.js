@@ -32,18 +32,20 @@ const OfferVersionsSection = ({ versions }) => {
 
     const [currentVersion, setCurrentVersion] = useState(versions[0]);
 
+    const versionActiveClass = (version) => version.name === currentVersion.name ? style.active : '';
+
     return (
-        <Section className="position-relative bg-dark">
+        <Section className={style.section}>
             <BackgroundImage fluid={data.statsBg.childImageSharp.fluid} />
             <Container>
                 <Row>
-                    <Col xs={4}>
-                        <div className="d-flex flex-column align-items-end">
-                            <h4>Versões</h4>
+                    <Col xs={3}>
+                        <div className={`${style.versions} d-flex flex-column align-items-end`}>
+                            <h3 className={style.title}>Versões</h3>
                             <div className={style.versionsList}>
                                 {versions.map(version => (
                                     <>
-                                        <h5>{version.name}</h5>
+                                        <h5 className={`${style.versionsItem} ${versionActiveClass(version)}`}>{version.name}</h5>
                                         <hr />
                                     </>
                                 ))}
@@ -51,12 +53,12 @@ const OfferVersionsSection = ({ versions }) => {
                         </div>
                     </Col>
 
-                    <Col xs={8}>
+                    <Col xs={9}>
                         <Row>
                             <Col xs={12} className={style.infoContainer}>
                                 <Img className={style.profileImg} fluid={currentVersion.profileImg.childImageSharp.fluid} />
                                 <div className={style.statsContainer}>
-                                    <h3>Informações Gerais</h3>
+                                    <h3 className={style.title}>Informações Gerais</h3>
                                     <div className={`${style.statsList} d-flex flex-column w-100`}>
                                         <StatsText title={"Cilindros/válvulas por cilindro"} value={"4/4"} />
                                         <StatsText title={"Cilindros/válvulas por cilindro"} value={"4/4"} />
@@ -78,7 +80,7 @@ const OfferVersionsSection = ({ versions }) => {
 
                         <Row>
                             <Col xs={12}>
-                                <h4>Itens de série</h4>
+                                <h3 className={style.title}>Itens de série</h3>
                                 <div className={style.tagContainer}>
                                     <div className={style.tagItem}>Ar condicionado</div>
                                     <div className={style.tagItem}>AirBag</div>

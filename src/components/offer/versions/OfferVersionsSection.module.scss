@@ -1,39 +1,5 @@
 @import '../../../styles/variables';
 
-.versions-list {
-    width: 100%;
-    text-align: right;
-
-    h5 {
-        cursor: pointer;
-        margin: 0;
-        opacity: 0.2;
-
-        transition: opacity 0.3s ease;
-
-        &:active,
-        &:hover {
-            opacity: 1;
-        }
-    }
-
-    hr {
-        width: 100%;
-        margin: 0;
-        background: var(--gray-dark);
-    }
-}
-
-.info-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .profile-img {
-        flex: 1 1 100%;
-    }
-}
-
 @mixin customScroll($width: 10px, $height: 6px) {
     &::-webkit-scrollbar {
         width: 6px;
@@ -47,14 +13,74 @@
     
     &::-webkit-scrollbar-thumb {
         border-radius: 10px;
-        -webkit-box-shadow: inset 0 $height $width var(--secondary); 
+        -webkit-box-shadow: inset 0 $height $width $color-primary-light; 
+    }
+}
+
+.section {
+    position: relative;
+    padding-bottom: $padding-base;
+    background: var(--dark);
+}
+
+.title {
+    font-weight: $font-weight-light;
+}
+
+.versions {
+    margin-top: $margin-large;
+
+    .title {
+        margin-bottom: $margin-middle;
+    }
+
+    &-list {
+        width: 100%;
+        text-align: right;
+
+        hr {
+            width: 100%;
+            margin: $margin-small 0;
+            margin-left: auto;
+            border-color: rgba($color-gray-dark, 0.7);
+        }
+    }
+
+    &-item {
+        text-transform: uppercase;
+        cursor: pointer;
+
+        margin: 0;
+        opacity: 0.2;
+
+        transition: opacity 0.3s ease;
+
+        &.active,
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .profile-img {
+        flex: 1 1 100%;
+        margin: 0 $margin-large;
     }
 }
 
 .stats-container {
-    flex: 1 1 90%;
-    padding: 2rem;
+    flex: 1 1 80%;
+    padding: $padding-large $padding-base;
     background: rgba($color-gray-darker, 0.75);
+
+    .title {
+        margin-bottom: $margin-small;
+    }
 
     .stats-list {
         max-height: 350px;
@@ -71,6 +97,7 @@
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
+        padding: $padding-tiny $padding-wee;
 
         p {
             width: 50%;
@@ -79,7 +106,7 @@
         }
 
         span {
-            color: var(--secondary);
+            color: $color-primary-light;
         }
     }
 }
@@ -106,7 +133,7 @@
         text-align: center;
 
         padding: 0.3rem 0.5rem;
-        background: var(--secondary);
+        background: $color-primary-base;
         border-radius: 9.5px;
     }
 }
