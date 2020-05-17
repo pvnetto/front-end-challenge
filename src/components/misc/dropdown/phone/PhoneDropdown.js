@@ -21,14 +21,14 @@ const UnitPhone = ({ name, phones, divider }) => {
                 <p><strong>{name}</strong></p>
                 <FontAwesomeIcon icon={faChevronDown} />
             </div>
-            <div className={`${style.itemDropdown} ${isDropdownActive()} bg-light`}>
+            <div className={`${style.itemDropdown} ${isDropdownActive()}`}>
                 {phones.map((phone, idx) => {
                     const phoneNumber = phoneFormatter(phone.number);
                     const phoneHasDivider = idx !== phones.length - 1;
                     return (
                         <Fragment key={idx}>
-                            <a href="">
-                                <p><strong>{phone.title}: </strong>{phoneNumber}</p> <FontAwesomeIcon icon={faPhoneAlt} />
+                            <a href={`tel: ${phoneNumber}`}>
+                                <p><strong>{phoneNumber}</strong> | {phone.title}</p>
                             </a>
                             {phoneHasDivider && <hr />}
                         </Fragment>
