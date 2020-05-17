@@ -1,0 +1,45 @@
+@import '../../../styles/variables';
+
+.section {
+    padding: 100px 0 $padding-big 0;   
+}
+
+.header {
+    strong {
+        font-weight: $font-weight-semi-bold;
+    }
+}
+
+.model-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: $margin-middle;
+    margin-bottom: $margin-big;
+
+    .model-text {
+        margin: 0;
+    }
+
+    .version-text {
+        margin-bottom: $margin-middle;
+    }
+
+    .model-text,
+    .version-text {
+        text-transform: uppercase;
+
+        strong {
+            font-weight: $font-weight-bold;
+        }
+    }
+}
+
+.price-info {
+    span {
+        text-decoration: line-through;
+    }
+}
+
+.overlay {
+    opacity: 0.35;
+}

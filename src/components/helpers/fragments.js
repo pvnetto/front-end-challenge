@@ -6,6 +6,7 @@ export const fullModelFragment = graphql`
         name
         brand
         description
+        price
         slug
         versions {
             name

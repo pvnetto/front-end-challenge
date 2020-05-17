@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/misc/seo";
-import OfferHeader from "../components/offer/OfferHeader";
+import OfferHeader from "../components/offer/header";
 import OfferConditionsSection from "../components/offer/OfferConditionsSection";
 import OfferVersionsSection from "../components/offer/versions";
 import OfferRecommendedSection from "../components/offer/recommended";

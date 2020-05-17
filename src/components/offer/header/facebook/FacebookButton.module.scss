@@ -1,0 +1,42 @@
+@import '../../../../styles/variables';
+
+.facebook-btn {
+    background-color:$color-facebook;
+    color: white;
+
+    &:hover {
+        background-color: lighten($color-facebook, 5%);
+        color: white;
+    }
+}
+
+.count {
+    position: relative;
+    color: black;
+    margin-left: 0.3rem;
+    border-radius: $border-radius;
+    
+    background: rgba(220, 220, 255, 1);
+    box-shadow: 0px 2px 2px #00000026;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -2px;
+        z-index: 0;
+
+        margin: auto 0;
+        
+        width: 6px;
+        height: 6px;
+        background: inherit;
+        transform: rotateZ(45deg);
+    }
+}
+
+.facebook-btn,
+.count {
+    padding: 0.1rem 0.5rem;
+}
