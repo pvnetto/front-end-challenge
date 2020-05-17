@@ -1,0 +1,20 @@
+@import '../../styles/variables';
+
+.section {
+    padding: 10rem 0;
+}
+
+.item {
+    opacity: 0.8;
+    transition: opacity $time-duration ease;
+
+    .title {
+        color: #fff;
+        font-weight: $font-weight-light;
+    }
+
+    &:hover {
+        text-decoration: none;
+        opacity: 1;
+    }
+}

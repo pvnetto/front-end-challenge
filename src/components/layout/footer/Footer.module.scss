@@ -1,8 +1,7 @@
 @import "../../../styles/variables";
 
 .footer {
-    font-family: var(--font-family-secondary);
-    background: var(--dark);
+    background: var($color-footer-base);
 
     padding-top: 3rem;
 }
