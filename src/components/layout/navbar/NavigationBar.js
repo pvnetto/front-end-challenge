@@ -31,6 +31,22 @@ const NavigationBar = ({ onExpand, expanded }) => {
                     }
                 }
             }
+
+            allModel {
+                edges {
+                    node {
+                        name
+                        slug
+                        profileImg {
+                            childImageSharp {
+                                fixed(width: 60) {
+                                    ...GatsbyImageSharpFixed
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     `);
 
@@ -41,8 +57,10 @@ const NavigationBar = ({ onExpand, expanded }) => {
         </div>
     );
 
+    const models = data.allModel.edges.map(model => model.node);
+
     return (
-        <Navbar id="navbar" className={`${style.navbar} position-absolute d-md-flex d-none flex-column p-0`}>
+        <Navbar id="navbar" variant="primary" className={`${style.navbar} position-absolute d-md-flex d-none flex-column p-0`}>
             <Container className={`${style.navbarContainer} d-flex align-items-center justify-content-between py-4 px-0 h-100`}>
 
                 <Navbar.Brand href="/">
@@ -51,12 +69,15 @@ const NavigationBar = ({ onExpand, expanded }) => {
 
 
                 <Nav className="d-flex align-items-center">
-                    <NavDropdown className={style.navDropdown} title={NavTitle(" Nossos Veículos ")} id="services-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                    <NavDropdown className={style.modelDropdown} title={NavTitle(" Nossos Veículos ")} id="models-dropdown">
+                        <div className={style.modelDropdownScroll}>
+                            {models.map((model, idx) => (
+                                <NavDropdown.Item key={idx} href={model.slug}>
+                                    <p className="m-0 mr-3">{model.name}</p>
+                                    <Img fixed={model.profileImg.childImageSharp.fixed} />
+                                </NavDropdown.Item>
+                            ))}
+                        </div>
                     </NavDropdown>
 
                     <Nav.Link href="/">Serviços</Nav.Link>

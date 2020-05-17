@@ -42,10 +42,43 @@
             text-transform: uppercase;
             padding: half($padding-small) $padding-base;
         }
+
+        &:focus {
+            color: inherit;
+        }
     }
 
     .model-dropdown {
-        @extend .nav-dropdown;    
+        @extend .nav-dropdown;
+        
+        :global(.dropdown-menu) {
+            height: 270px;
+            padding: half($padding-middle) 0;
+        }
+        
+        &-scroll {
+            margin: 0 $margin-small;
+            overflow-y: scroll;
+            max-height: 100%;
+            @include customScroll(#373435, rgba(#373435, 0.1));
+        }
+
+        :global(.dropdown-item) {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: half($padding-base) $padding-base;
+            
+            p {
+                margin: 0;
+                margin-right: $margin-small;
+            
+                font-size: $font-size-small;
+                font-weight: $font-weight-bold;
+                color: $color-gray-darker;
+            }
+        }
     }
 
     :global(.dropdown-toggle) {
