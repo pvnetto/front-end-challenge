@@ -24,6 +24,7 @@ export const fullModelFragment = graphql`
                 SAFETY
                 SPECS
             }
+            items
         }
         profileImg {
             childImageSharp {

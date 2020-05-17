@@ -49,6 +49,7 @@ const generateUserModels = async ({ createNode }, getNodes) => {
                     SAFETY: version.item_list,
                     CONNECTIVITY: version.connectivity_list,
                 },
+                items: version.item_list,
                 profileImgUrl: version.item_image.url,
             })) : [];
     };

@@ -7,12 +7,61 @@ import Section from '../../layout/containers/Section';
 import BackgroundImage from '../../misc/BackgroundImage';
 import style from './OfferVersionsSection.module.scss';
 
-const StatsText = ({ title, value }) => (
-    <div className={style.statsItem}>
-        <p className="mr-4"><small>{title}:</small></p>
-        <p><small><span>{value}</span></small></p>
-    </div>
-);
+const StatsText = ({ spec }) => {
+    const [title, value] = spec.split(':');
+
+    return (
+        <div className={style.statsItem}>
+            <p className="mr-4"><small>{title}:</small></p>
+            <p><small><span>{value}</span></small></p>
+        </div>
+    );
+};
+
+const TagList = ({ items }) => {
+
+    const TagItem = ({ item }) => (
+        <div className={style.tagItem}>
+            <small>{item}</small>
+        </div>
+    );
+
+    const rowA = [];
+    const rowB = [];
+
+    const addToRow = function () {
+        let rowALength = 0;
+        let rowBLength = 0;
+
+        return (item) => {
+            if (rowALength < rowBLength) {
+                rowA.push(item);
+                rowALength += item.length;
+            }
+            else {
+                rowB.push(item);
+                rowBLength += item.length;
+            }
+        }
+    }();
+
+    items.forEach(item => addToRow(item));
+
+    return (
+        <div className={style.tagContainer}>
+            <div className={style.tagRow}>
+                {rowA.map((item, idx) => (
+                    <TagItem key={idx} item={item} />
+                ))}
+            </div>
+            <div className={style.tagRow}>
+                {rowB.map((item, idx) => (
+                    <TagItem key={idx} item={item} />
+                ))}
+            </div>
+        </div>
+    );
+};
 
 const OfferVersionsSection = ({ versions }) => {
 
@@ -45,7 +94,8 @@ const OfferVersionsSection = ({ versions }) => {
                             <div className={style.versionsList}>
                                 {versions.map(version => (
                                     <>
-                                        <h5 className={`${style.versionsItem} ${versionActiveClass(version)}`}>{version.name}</h5>
+                                        <h5 onClick={() => setCurrentVersion(version)}
+                                            className={`${style.versionsItem} ${versionActiveClass(version)}`}>{version.name}</h5>
                                         <hr />
                                     </>
                                 ))}
@@ -60,19 +110,9 @@ const OfferVersionsSection = ({ versions }) => {
                                 <div className={style.statsContainer}>
                                     <h3 className={style.title}>Informações Gerais</h3>
                                     <div className={`${style.statsList} d-flex flex-column w-100`}>
-                                        <StatsText title={"Cilindros/válvulas por cilindro"} value={"4/4"} />
-                                        <StatsText title={"Cilindros/válvulas por cilindro"} value={"4/4"} />
-                                        <StatsText title={"Cilindros/válvulas por cilindro"} value={"4/4"} />
-                                        <StatsText title={"Cilindros/válvulas por cilindro"} value={"4/4"} />
-                                        <StatsText title={"Cilindros/válvulas por cilindro"} value={"4/4"} />
-                                        <StatsText title={"Cilindros/válvulas por cilindro"} value={"4/4"} />
-                                        <StatsText title={"Cilindros/válvulas por cilindro"} value={"4/4"} />
-                                        <StatsText title={"Cilindros/válvulas por cilindro"} value={"4/4"} />
-
-                                        <StatsText title={"Cilindros/válvulas por cilindro"} value={"4/4"} />
-                                        <StatsText title={"Cilindros/válvulas por cilindro"} value={"4/4"} />
-                                        <StatsText title={"Cilindros/válvulas por cilindro"} value={"4/4"} />
-                                        <StatsText title={"Cilindros/válvulas por cilindro"} value={"4/4"} />
+                                        {currentVersion.stats.SPECS.map((spec, idx) => (
+                                            <StatsText key={idx} spec={spec} />
+                                        ))}
                                     </div>
                                 </div>
                             </Col>
@@ -81,27 +121,7 @@ const OfferVersionsSection = ({ versions }) => {
                         <Row>
                             <Col xs={12}>
                                 <h3 className={style.title}>Itens de série</h3>
-                                <div className={style.tagContainer}>
-                                    <div className={style.tagItem}>Ar condicionado</div>
-                                    <div className={style.tagItem}>AirBag</div>
-                                    <div className={style.tagItem}>Ar condicionado</div>
-                                    <div className={style.tagItem}>Ar condicionado</div>
-                                    <div className={style.tagItem}>AirBag</div>
-                                    <div className={style.tagItem}>AirBag</div>
-                                    <div className={style.tagItem}>Ar condicionado</div>
-                                    <div className={style.tagItem}>AirBag</div>
-                                    <div className={style.tagItem}>Ar condicionado</div>
-                                    <div className={style.tagItem}>AirBag</div>
-                                    <div className={style.tagItem}>Ar condicionado</div>
-                                    <div className={style.tagItem}>AirBag</div>
-
-                                    <div className={style.tagItem}>Ar condicionado</div>
-                                    <div className={style.tagItem}>AirBag</div>
-                                    <div className={style.tagItem}>Ar condicionado</div>
-                                    <div className={style.tagItem}>AirBag</div>
-                                    <div className={style.tagItem}>Ar condicionado</div>
-                                    <div className={style.tagItem}>AirBag</div>
-                                </div>
+                                <TagList items={currentVersion.items} />
                             </Col>
                         </Row>
                     </Col>

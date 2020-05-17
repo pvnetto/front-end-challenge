@@ -112,28 +112,35 @@
 }
 
 .tag-container {
-    max-width: 100%;
-    display: inline-grid;
-    grid-template-rows: repeat(2, auto);
-    grid-template-columns: 150px;
-    
-    grid-auto-flow: column;
-    grid-auto-columns: 150px;
-    overflow-x: scroll;
-
-    grid-row-gap: 10px;
-    grid-column-gap: 5px;
-
+    // max-width: 100%;
     padding: 1rem 0;
+    overflow-x: scroll;
 
     @include customScroll();
 
-    .tag-item {
-        display: inline;
-        text-align: center;
+    .tag-row {
+        display: flex;
+        flex-direction: row;
+    }
 
-        padding: 0.3rem 0.5rem;
+    .tag-row:nth-child(1) {
+        margin-bottom: $margin-wee;
+    }
+
+    .tag-item {
+        cursor: pointer;
+
+        display: inline;
+        flex: 0 0 auto;
+        text-align: center;
+        margin-right: $margin-tiny;
+
+        padding: 2px $padding-wee;
         background: $color-primary-base;
         border-radius: 9.5px;
+
+        small {
+            font-weight: $font-weight-normal;
+        }
     }
 }
