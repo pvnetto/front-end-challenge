@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/misc/seo";
 import OfferHeader from "../components/offer/header";
-import OfferConditionsSection from "../components/offer/OfferConditionsSection";
+import OfferHighlightsSection from "../components/offer/highlights";
 import OfferVersionsSection from "../components/offer/versions";
 import OfferRecommendedSection from "../components/offer/recommended";
 
@@ -17,7 +17,7 @@ const OfferPage = ({ data }) => {
     <Layout>
       <SEO title={`${model.brand} ${model.name}`} />
       <OfferHeader {...model} />
-      <OfferConditionsSection />
+      <OfferHighlightsSection />
       <OfferVersionsSection {...model} />
       <OfferRecommendedSection models={models} />
     </Layout>

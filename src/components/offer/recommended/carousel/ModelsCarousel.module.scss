@@ -2,6 +2,7 @@
 
 .carousel {
     padding: 0 4rem;
+    margin-bottom: $margin-small;   // Compensates for carousel-indicators offset
 
     &-wrapper {}
 
@@ -44,7 +45,7 @@
             border-radius: 100%;
 
             &:global(.active) {
-                background: var(--secondary);
+                background: var(--primary);
             }
         }
     }

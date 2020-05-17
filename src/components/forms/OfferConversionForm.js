@@ -60,7 +60,7 @@ const OfferConversionForm = ({ versions, className = '', children }) => (
 
 
             <Form.Group>
-                <Button className="w-100 py-3" variant="secondary" type="submit">
+                <Button className="w-100 py-3" variant="primary" type="submit">
                     <strong>Simular Financiamento</strong>
                 </Button>
             </Form.Group>

@@ -1,0 +1,28 @@
+@import '../../../styles/variables';
+
+.section {
+    background: $color-primary-dark;
+    padding: $padding-middle 0;
+
+    .item:nth-child(2) {
+        border-right: 1px solid rgba($color-gray-dark, 0.1);
+        border-left: 1px solid rgba($color-gray-dark, 0.1);
+    }
+}
+
+.item {
+    padding: $padding-big;
+
+    .title {
+        font-weight: $font-weight-light;
+    }
+    
+    .condition {
+        color: $color-primary-light;
+        text-transform: uppercase;
+    }
+    
+    .description {
+        color: var(--gray);
+    }
+}
